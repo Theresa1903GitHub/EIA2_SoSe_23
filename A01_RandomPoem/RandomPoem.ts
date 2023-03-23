@@ -12,9 +12,9 @@ for (let x:number=subjects.length; x>=1; x--){
     console.log(x);
 }
 
-function getVerse (_subject:string, _verb:string, _object:string) : string {
+function getVerse (_subject:string, _verb:string, _object:string) : void {
     //console.log(_x);			
-    return _subject + " " + _verb + " " + _object
+    //return _subject + " " + _verb + " " + _object;
     console.log(_subject + " " + _verb + " " + _object);
 };
 

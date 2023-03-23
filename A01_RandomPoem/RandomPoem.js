@@ -12,7 +12,7 @@ var Poem;
     }
     function getVerse(_subject, _verb, _object) {
         //console.log(_x);			
-        return _subject + " " + _verb + " " + _object;
+        //return _subject + " " + _verb + " " + _object;
         console.log(_subject + " " + _verb + " " + _object);
     }
     ;
