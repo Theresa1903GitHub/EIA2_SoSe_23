@@ -1,5 +1,12 @@
 namespace EventInspector {
-
+/*
+      Aufgabe: 02_EventInspector
+      Name: Theresa Hauser
+      Matrikel: 272983
+      Datum: 01.04.23
+      Zusammenarbeit mit Pia Schwer, Marie Eckl
+      Quellen: Stack Overflow, Developer Mozilla, L02 Jirka
+*/
 window.addEventListener("load", handleLoad);
 
 function handleLoad ():void {
