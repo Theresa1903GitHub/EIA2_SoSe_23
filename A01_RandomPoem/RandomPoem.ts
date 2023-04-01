@@ -23,20 +23,22 @@ namespace Poem {
 
 
     for (let x: number = subjects.length; x >= 1; x--) {
-        getVerse(subjects, verbs, objects)
+        let output = getVerse(subjects, verbs, objects)
+        console.log(output);
+        
     }
 
     function getVerse(_subject: string[], _verb: string[], _object: string[]): string {
-        let randomSubject: number = Math.floor(Math.random() * subjects.length);
-        let randomObject: number = Math.floor(Math.random() * objects.length);
-        let randomVerb: number = Math.floor(Math.random() * verbs.length);
-        let verse: string = subjects[randomSubject] + " " + verbs[randomVerb] + " " + objects[randomObject];
+        let randomSubject: number = Math.floor(Math.random() * _subject.length);
+        let randomObject: number = Math.floor(Math.random() * _object.length);
+        let randomVerb: number = Math.floor(Math.random() * _verb.length);
+        let verse: string = _subject[randomSubject] + " " + _verb[randomVerb] + " " + _object[randomObject];
 
         _subject.splice(randomSubject, 1);
         _verb.splice(randomVerb, 1);
         _object.splice(randomObject, 1);
 
-        console.log(verse);
+        // console.log(verse);
         return verse;
 
     };
