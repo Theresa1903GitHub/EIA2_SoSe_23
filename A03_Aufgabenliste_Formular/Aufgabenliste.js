@@ -7,7 +7,7 @@ var Aufgabenliste;
         Matrikel: 272983
         Datum: 07.04.23
         Zusammenarbeit mit Pia Schwer, Marie Eckl
-        Quellen: Stack Overflow, Developer Mozilla, L02 Jirka
+        Quellen: Stack Overflow, Developer Mozilla, Inverted Classroom Jirka, Tasks aus EIA1
         */
     window.addEventListener("load", handleLoad);
     function handleLoad() {
