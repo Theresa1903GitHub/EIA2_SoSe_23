@@ -1,12 +1,10 @@
 body {
-    background: #CCCCCC;
+    background: #222222;
     font-family:'Quicksand', sans-serif;
     font-size: 18px;
     text-align: center;
     align-items: center;
 }
-
-
 
 .myClass {
     display: flex;
@@ -28,6 +26,7 @@ body {
     width: 370px;
     font-weight: bolder;
     font-size: 20px;
+    border: 0px;
 }
 .commentText{
     display: flex;
@@ -50,16 +49,16 @@ body {
     align-items: center;
 }
 
-#invisible{
+/* #invisible{
     display: none;
-}
+} */
 
 .newTask{
     height: 160px;
     border-radius: 15px;
     width: 496px;
     background-color: #ffffff;
-    box-shadow: 3px 3px 6px#777777;
+    box-shadow: 3px 3px 6px #111111;
     border: 0px;
     border-radius: 10px;
     /* margin-top: 10px; */
@@ -83,21 +82,30 @@ input, select{
     margin-left: 12px;
 }
 
-.addButton{
+#btn{
     justify-content:baseline;
     width: 90px;
     height: 30px;
     background-color: #777777;
     color: white;
     border-radius: 10px;
-    margin-top: 10px;
+    margin-top: 30px;
     margin-right: 30px;
+    border: 0px;
+    font-weight: bolder;
 }
 
 .group{
     display: flex;
     flex-direction: column;
     width: 90px;
+    margin-top: -5px;
+}
+.group1{
+    display: flex;
+    flex-direction: column;
+    width: 90px;
+    margin-top: 0px;
 }
 .subgroup{
     display: flex;
@@ -122,6 +130,19 @@ input, select{
     width: 150px;
     height: 40px;
     background-color: green;
+    color: white;
+    font-size: small;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-right: 30px;
+}
+.dateUndone{
+    padding-top: 0;
+    margin-top: 0px;
+    justify-content:center;
+    width: 150px;
+    height: 40px;
+    background-color: #333333;
     color: white;
     font-size: small;
     border-radius: 10px;
@@ -173,10 +194,20 @@ input, select{
 label{
     vertical-align: middle;
 }
-#radio2, #radio3 {
+#radio1, #radio2, #radio3, #radio4, #radio5, #radio6 {
     vertical-align: middle;
 }
 #name{
     vertical-align: middle;
     margin-top: 5px;
+}
+#AddName{
+    margin-top: 5px;
+}
+h1{
+    color: #ffffff;
+}
+#name{
+    width: 100px;
+    text-align: left;
 }
