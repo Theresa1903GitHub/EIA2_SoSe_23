@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <script src="./Aufgabenliste.js" defer></script>
+</head>
+<body>
+    <main>
+        <h1>ToDo App</h1>
+        <!-- <div></div>
+        <p id="count">0 in total</p>
+        <br> -->
+        <div class="wrapper" id="wrap">
+            <div class="newTask">
+                <div class="subgroup1">
+                    <input type="text" id="inputText" placeholder="Add a new task here"></input>
+                    <div class="space"></div>
+                    <div class="addButton">
+                        <button id="btn">add</button>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="subgroup">
+                <input type="text" id="comment" placeholder="Add a comment"></input>
+                <div class="space"></div>
+                <div class="group">
+                    <select name="name" id="name">
+                        <option value="option1">Lisa</option>
+                        <option value="option2">Tim</option>
+                        <option value="option3">Franziska</option>
+                    </select>
+                        <div class="space"></div>
+                    <input type="date" id="date"></input>
+                        <div class="space"></div>
+                    <input type="time" name="time" id="time">                   
+                </div>
+                </div>
+            </div>
+            <div class="task" id="toDoList">
+                <div class="space"></div>
+                <div class="newTask">
+                    <!-- <div><button id="addButton"><i class="fas fa-plus-circle"></i></button></div> -->
+                    <div class="subgroup">
+                        <p class="taskText" id="TextExample">new task</p>
+                        <div class="date">
+                            <p id="dateToday">10.04.2023 - 14:00</p>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <p id="CommentExample">imagine there was a real comment and you could read it here. Don't know what to write here, but I need a longer text to see how it flows...</p>
+                        <div class="space"></div>
+                        <div class="subgroup1">
+                            <div class="subgroup1">
+                                <p class="mediumbold" id="name">@ Lisa</p>
+                                <div class="space"></div>
+                                <div class="space"></div>
+                                <div class="space"></div>
+                                <span>
+		                            <input type="radio" name="Radiogroup" value="radio2" id="radio2" />
+		                            <label class="medium" for="radio2">in progress</label>
+                                </span>
+                                <div class="space"></div>
+		                        <span>
+                                    <input type="radio" name="Radiogroup" value="radio3" id="radio3" />
+		                            <label class="medium" for="radio3">done</label>
+                                </span>
+                            </div>
+                            <div class="subgroup1">
+                                <div class="space"></div>
+                                <img src="./images/Stift.png" alt="bearbeiten" class="pen">
+                                <div class="space"></div>
+                                <img src="./images/u8.svg" alt="trash" class="trash">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space"></div>
+                <div class="newTask">
+                    <!-- <div><button id="addButton"><i class="fas fa-plus-circle"></i></button></div> -->
+                    <div class="subgroup">
+                        <p class="taskText" id="TextExample">new task</p>
+                        <div class="dateOver">
+                            <p id="dateToday">07.04.2023 - 10:00</p>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <p id="CommentExample">imagine there was a real comment and you could read it here. Don't know what to write here, but I need a longer text to see how it flows...</p>
+                        <div class="space"></div>
+                        <div class="subgroup1">
+                            <div class="subgroup1">
+                                <p class="mediumbold" id="name">@ Franziska</p>
+                                <div class="space"></div>
+                                <div class="space"></div>
+                                <div class="space"></div>
+                                <span>
+		                            <input type="radio" name="Radiogroup" value="radio2" id="radio2" />
+		                            <label class="medium" for="radio2">in progress</label>
+                                </span>
+                                <div class="space"></div>
+		                        <span>
+                                    <input type="radio" name="Radiogroup" value="radio3" id="radio3" />
+		                            <label class="medium" for="radio3">done</label>
+                                </span>
+                            </div>
+                            <div class="subgroup1">
+                                <div class="space"></div>
+                                <img src="./images/Stift.png" alt="bearbeiten" class="pen">
+                                <div class="space"></div>
+                                <img src="./images/u8.svg" alt="trash" class="trash">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="newTask">
+                    <!-- <div><button id="addButton"><i class="fas fa-plus-circle"></i></button></div> -->
+                    <div class="subgroup">
+                        <p class="taskText" id="TextExample">new task</p>
+                        <div class="date">
+                            <p id="dateToday">15.04.2023 - 18:30</p>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <p id="CommentExample">imagine there was a real comment and you could read it here. Don't know what to write here, but I need a longer text to see how it flows...</p>
+                        <div class="space"></div>
+                        <div class="subgroup1">
+                            <div class="subgroup1">
+                                <p class="mediumbold" id="name">@ Tim</p>
+                                <div class="space"></div>
+                                <div class="space"></div>
+                                <div class="space"></div>
+                                <span>
+		                            <input type="radio" name="Radiogroup" value="radio2" id="radio2" />
+		                            <label class="medium" for="radio2">in progress</label>
+                                </span>
+                                <div class="space"></div>
+		                        <span>
+                                    <input type="radio" name="Radiogroup" value="radio3" id="radio3" />
+		                            <label class="medium" for="radio3">done</label>
+                                </span>
+                            </div>
+                            <div class="subgroup1">
+                                <div class="space"></div>
+                                <img src="./images/Stift.png" alt="bearbeiten" class="pen">
+                                <div class="space"></div>
+                                <img src="./images/u8.svg" alt="trash" class="trash">
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
+
+
+  
