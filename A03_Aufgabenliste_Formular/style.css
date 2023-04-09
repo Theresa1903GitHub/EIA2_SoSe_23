@@ -200,14 +200,12 @@ label{
 #name{
     vertical-align: middle;
     margin-top: 5px;
+    width: 100px;
+    text-align: left;
 }
 #AddName{
     margin-top: 5px;
 }
 h1{
     color: #ffffff;
-}
-#name{
-    width: 100px;
-    text-align: left;
 }

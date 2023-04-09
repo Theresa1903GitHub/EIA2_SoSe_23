@@ -14,17 +14,24 @@ var Aufgabenliste;
         let pen = document.querySelectorAll(".pen");
         let trash = document.querySelectorAll(".trash");
         let button = document.getElementById("btn");
+        let done = document.querySelectorAll(".done");
         let editTask = () => {
             console.log("edit this task");
         };
         let deleteTask = () => {
             console.log("delete this task");
         };
+        let TaskDone = () => {
+            console.log("this task is done");
+        };
         pen.forEach((item) => {
             item.addEventListener("click", editTask);
         });
         trash.forEach((item) => {
             item.addEventListener("click", deleteTask);
+        });
+        done.forEach((item) => {
+            item.addEventListener("click", TaskDone);
         });
         button.addEventListener("click", newTask);
     }

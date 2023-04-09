@@ -10,26 +10,31 @@ namespace Aufgabenliste{
 window.addEventListener("load", handleLoad);
         
 function handleLoad ():void {
-    let pen = document.querySelectorAll(".pen");
+    let pen : NodeListOf<Element> = document.querySelectorAll(".pen");
     let trash : NodeListOf<Element> = document.querySelectorAll(".trash");
     let button : HTMLButtonElement = <HTMLButtonElement> document.getElementById("btn");
+    let done : NodeListOf<Element> = document.querySelectorAll(".done");
 
 let editTask = () => {
     console.log("edit this task");
-    
 }
 
 let deleteTask = () => {
     console.log("delete this task");
-    
+}
+
+let TaskDone = () => {
+    console.log("this task is done");
 }
     
 pen.forEach((item) => {
     item.addEventListener("click", editTask)})
 
-
 trash.forEach((item) => {
     item.addEventListener("click", deleteTask)});
+
+done.forEach((item) => {
+    item.addEventListener("click", TaskDone)});
 
 button.addEventListener("click", newTask);
 }    
