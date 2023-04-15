@@ -20,19 +20,31 @@ let Time: HTMLInputElement = <HTMLInputElement> document.querySelector("#time");
 function handleLoad ():void {
     generateContent(data);
     let button : HTMLButtonElement = <HTMLButtonElement> document.getElementById("btn");
-    // let done: HTMLInputElement = document.createElement("input");
-
+    // let done: HTMLLabelElement = <HTMLLabelElement> document.createElement("Done");
+    // let inProgress: HTMLLabelElement = <HTMLLabelElement> document.createElement("Progress");
 
     button.addEventListener("click", newTask);
     // done.addEventListener("click", TaskDone);
+    // done.addEventListener("click", TaskDone);     
+        
+    
+    // inProgress.addEventListener("click", TaskinProgress);
 }    
+
+// function TaskDone (){
+//     console.log("Done");
+// }
+ 
+// function TaskinProgress(){
+//     console.log("Progress");
+// }
 
 function newTask (_event:MouseEvent): void {
     let newTaskInput: toDoList = {
         Input: [
             { title: Title.value, comment: Comment.value, name: Name.value, date: Date.value, time: Time.value, done: false},
         ]}
-  
+    
     generateContent(newTaskInput);
     
     Title.value = "";    
@@ -43,39 +55,8 @@ function newTask (_event:MouseEvent): void {
 }
 
 
-done.addEventListener("click", function TaskDone(){
-    DateTime.classList.add("dateDone");
-    DateTime.classList.remove("dateUndone");
-    DateTime.classList.remove("dateOver");
-});
-
-inProgress.addEventListener("click", function TaskinProgress(){
-    DateTime.classList.add("dateUndone");
-    DateTime.classList.remove("dateDone");
-    DateTime.classList.remove("date");
-})
-// function TaskDone(){
-//     DateTime.classList.add("dateDone");
-// };
 
 
-// // let today = new Date ();
-// // console.log(today);
-// // // let todayString = today.toISOString;
-// // // console.log(todayString);
-// // let exactDate : Date = <Date> date.valueAsDate;
-
-// // if (exactDate.getTime() <= today.getTime()) {
-// // 	console.log("true");
-// //     console.log(today);
-// //     console.log(exactDate);    
-// // }
-// // else{
-// //     console.log("false");
-// //     console.log(today);
-// //     console.log(exactDate);
-// // }
-    
 
 
 

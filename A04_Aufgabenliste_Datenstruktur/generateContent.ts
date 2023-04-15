@@ -13,6 +13,7 @@ export function generateContent(_data: toDoList): void {
 
         let Title = document.createElement("input");
         Title.type = "text";
+        Title.setAttribute("required", "required");
         Title.value = _data.Input[x].title;
         Title.classList.add("taskText");
         Subgroup.appendChild(Title);  
@@ -60,7 +61,6 @@ export function generateContent(_data: toDoList): void {
         let inProgress: HTMLInputElement = document.createElement("input");
         inProgress.type = "radio";
         inProgress.id = _data.Input[x].title  + "Progress";
-        // inProgress.id = "Progress";
         inProgress.value = _data.Input[x].name;
         // inProgress.addEventListener("click", function TaskinProgress(){
         //     DateTime.classList.add("dateUndone");
@@ -79,7 +79,6 @@ export function generateContent(_data: toDoList): void {
         let done: HTMLInputElement = document.createElement("input");
         done.type = "radio";
         done.id = _data.Input[x].title + "Done";
-        // inProgress.id = "Done";
         done.value = _data.Input[x].name;
         done.name = "radio" + x;
         
@@ -106,13 +105,6 @@ export function generateContent(_data: toDoList): void {
         Tasklist.appendChild(Space);
 }
 }
-
-// function generateVariables (_data: toDoList): void {
-export let done : HTMLInputElement = <HTMLInputElement> document.getElementById("Done");
-export let inProgress : HTMLInputElement = <HTMLInputElement> document.getElementById("Progress");
-export let DateTime : HTMLDivElement = <HTMLDivElement> document.getElementById("DateTime");
-
-
 
 }
 

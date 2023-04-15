@@ -19,10 +19,19 @@ var L04_Aufgabenliste_Datenstruktur;
     function handleLoad() {
         L04_Aufgabenliste_Datenstruktur.generateContent(L04_Aufgabenliste_Datenstruktur.data);
         let button = document.getElementById("btn");
-        // let done: HTMLInputElement = document.createElement("input");
+        // let done: HTMLLabelElement = <HTMLLabelElement> document.createElement("Done");
+        // let inProgress: HTMLLabelElement = <HTMLLabelElement> document.createElement("Progress");
         button.addEventListener("click", newTask);
         // done.addEventListener("click", TaskDone);
+        // done.addEventListener("click", TaskDone);     
+        // inProgress.addEventListener("click", TaskinProgress);
     }
+    // function TaskDone (){
+    //     console.log("Done");
+    // }
+    // function TaskinProgress(){
+    //     console.log("Progress");
+    // }
     function newTask(_event) {
         let newTaskInput = {
             Input: [
@@ -36,33 +45,5 @@ var L04_Aufgabenliste_Datenstruktur;
         Date.value = "2023-04-15";
         Time.value = "10:00";
     }
-    L04_Aufgabenliste_Datenstruktur.done.addEventListener("click", function TaskDone() {
-        L04_Aufgabenliste_Datenstruktur.DateTime.classList.add("dateDone");
-        L04_Aufgabenliste_Datenstruktur.DateTime.classList.remove("dateUndone");
-        L04_Aufgabenliste_Datenstruktur.DateTime.classList.remove("dateOver");
-    });
-    L04_Aufgabenliste_Datenstruktur.inProgress.addEventListener("click", function TaskinProgress() {
-        L04_Aufgabenliste_Datenstruktur.DateTime.classList.add("dateUndone");
-        L04_Aufgabenliste_Datenstruktur.DateTime.classList.remove("dateDone");
-        L04_Aufgabenliste_Datenstruktur.DateTime.classList.remove("date");
-    });
-    // function TaskDone(){
-    //     DateTime.classList.add("dateDone");
-    // };
-    // // let today = new Date ();
-    // // console.log(today);
-    // // // let todayString = today.toISOString;
-    // // // console.log(todayString);
-    // // let exactDate : Date = <Date> date.valueAsDate;
-    // // if (exactDate.getTime() <= today.getTime()) {
-    // // 	console.log("true");
-    // //     console.log(today);
-    // //     console.log(exactDate);    
-    // // }
-    // // else{
-    // //     console.log("false");
-    // //     console.log(today);
-    // //     console.log(exactDate);
-    // // }
 })(L04_Aufgabenliste_Datenstruktur || (L04_Aufgabenliste_Datenstruktur = {}));
 //# sourceMappingURL=Aufgabenliste.js.map

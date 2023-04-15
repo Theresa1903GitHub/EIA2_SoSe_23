@@ -12,6 +12,7 @@ var L04_Aufgabenliste_Datenstruktur;
             newTaskDiv.appendChild(Subgroup);
             let Title = document.createElement("input");
             Title.type = "text";
+            Title.setAttribute("required", "required");
             Title.value = _data.Input[x].title;
             Title.classList.add("taskText");
             Subgroup.appendChild(Title);
@@ -50,7 +51,6 @@ var L04_Aufgabenliste_Datenstruktur;
             let inProgress = document.createElement("input");
             inProgress.type = "radio";
             inProgress.id = _data.Input[x].title + "Progress";
-            // inProgress.id = "Progress";
             inProgress.value = _data.Input[x].name;
             // inProgress.addEventListener("click", function TaskinProgress(){
             //     DateTime.classList.add("dateUndone");
@@ -66,7 +66,6 @@ var L04_Aufgabenliste_Datenstruktur;
             let done = document.createElement("input");
             done.type = "radio";
             done.id = _data.Input[x].title + "Done";
-            // inProgress.id = "Done";
             done.value = _data.Input[x].name;
             done.name = "radio" + x;
             let LabelDone = document.createElement("label");
@@ -88,9 +87,5 @@ var L04_Aufgabenliste_Datenstruktur;
         }
     }
     L04_Aufgabenliste_Datenstruktur.generateContent = generateContent;
-    // function generateVariables (_data: toDoList): void {
-    L04_Aufgabenliste_Datenstruktur.done = document.getElementById("Done");
-    L04_Aufgabenliste_Datenstruktur.inProgress = document.getElementById("Progress");
-    L04_Aufgabenliste_Datenstruktur.DateTime = document.getElementById("DateTime");
 })(L04_Aufgabenliste_Datenstruktur || (L04_Aufgabenliste_Datenstruktur = {}));
 //# sourceMappingURL=generateContent.js.map
