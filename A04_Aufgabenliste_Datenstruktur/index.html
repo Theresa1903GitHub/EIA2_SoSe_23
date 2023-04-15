@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <script src="data.js" type="text/javascript" charset="utf-8"></script>
+	<script src="generateContent.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./Aufgabenliste.js" defer></script>
+</head>
+<body>
+    <main>
+        <h1>ToDo App</h1>
+        <div class="wrapper" id="wrap">
+            <div class="newTask" id="addNewTask">
+                <div class="subgroup2">
+                    <input type="text" class="inputText" id="inputText" placeholder="Add a new task here"></input>
+                    <div class="space"></div>
+                    <div class="addButton">
+                        <button id="btn">add</button>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="subgroup">
+                <input type="text" class="comment" id="comment" placeholder="Add a comment"></input>
+                <div class="space"></div>
+                <div class="group">
+                    <select name="name" id="AddName">
+                        <option value="Lisa">Lisa</option>
+                        <option value="Tim">Tim</option>
+                        <option value="Franziska">Franziska</option>
+                    </select>
+                        <div class="space"></div>
+                    <input type="date" id="date" value="2023-04-13"></input>
+                        <div class="space"></div>
+                    <input type="time" name="time" id="time" value="10:05">                   
+                </div>
+                </div>
+            </div>
+            <div class="space"></div>
+            <div class="task" id="toDoList">
+                
+                <!-- <fieldset class="newTask" id="task"> -->
+                    <!-- <div><button id="addButton"><i class="fas fa-plus-circle"></i></button></div>
+                    <div class="subgroup">
+                        <p class="taskText" id="TextExample">new task</p>
+                        <div class="date">
+                            <p id="dateToday">10.04.2023 - 14:00</p>
+                        </div>
+                    </div>
+                    <div class="group1">
+                        <p id="CommentExample">imagine there was a real comment and you could read it here. Don't know what to write here, but I need a longer text to see how it flows...</p>
+                        <div class="space"></div>
+                        <div class="subgroup1">
+                            <div class="subgroup1">
+                                <p class="mediumbold" id="name">@ Lisa</p>
+                                <div class="space"></div>
+                                <div class="space"></div>
+                                <div class="space"></div>
+                                <span>
+		                            <input type="radio" name="Radiogroup" value="radio1" id="radio1" />
+		                            <label class="medium" for="radio1">in progress</label>
+                                </span>
+                                <div class="space"></div>
+		                        <span>
+                                    <input type="radio" name="Radiogroup" value="radio2" id="radio2"  checked/>
+		                            <label class="medium" for="radio2">done</label>
+                                </span>
+                            </div>
+                            <div class="subgroup1">
+                                <div class="space"></div>
+                                <img src="./images/Stift.png" alt="bearbeiten" class="pen">
+                                <div class="space"></div>
+                                <img src="./images/u8.svg" alt="trash" class="trash">
+                            </div>
+                        </div>
+                </fieldset>
+                    <div class="space"></div>
+                <fieldset class="newTask" id="inProgress">
+                    <div><button id="addButton"><i class="fas fa-plus-circle"></i></button></div> -->
+                    <!-- <div class="subgroup">
+                        <p class="taskText" id="TextExample">new task</p>
+                        <div class="dateOver">
+                            <p id="dateToday">07.04.2023 - 10:00</p>
+                        </div>
+                    </div>
+                    <div class="group1">
+                        <p id="CommentExample">imagine there was a real comment and you could read it here. Don't know what to write here, but I need a longer text to see how it flows...</p>
+                        <div class="space"></div>
+                        <div class="subgroup1">
+                            <div class="subgroup1">
+                                <p class="mediumbold" id="name">@ Franziska</p>
+                                <div class="space"></div>
+                                <div class="space"></div>
+                                <div class="space"></div>
+                                <span>
+		                            <input type="radio" name="Radiogroup2" value="radio3" id="radio3" />
+		                            <label class="medium" for="radio3">in progress</label>
+                                </span>
+                                <div class="space"></div>
+		                        <span>
+                                    <input type="radio" name="Radiogroup2" value="radio4" id="radio4" class="done"/>
+		                            <label class="medium" for="radio4">done</label>
+                                </span>
+                            </div>
+                            <div class="subgroup1">
+                                <div class="space"></div>
+                                <img src="./images/Stift.png" alt="bearbeiten" class="pen">
+                                <div class="space"></div>
+                                <img src="./images/u8.svg" alt="trash" class="trash">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="space"></div>
+                <fieldset class="newTask" id="done">
+                    <div><button id="addButton"><i class="fas fa-plus-circle"></i></button></div> -->
+                    <!-- <div class="subgroup">
+                        <p class="taskText" id="TextExample">new task</p>
+                        <div class="dateUndone">
+                            <p id="dateToday">15.04.2023 - 18:30</p>
+                        </div>
+                    </div>
+                    <div class="group1">
+                        <p id="CommentExample">imagine there was a real comment and you could read it here. Don't know what to write here, but I need a longer text to see how it flows...</p>
+                        <div class="space"></div>
+                        <div class="subgroup1">
+                            <div class="subgroup1">
+                                <p class="mediumbold" id="name">@ Tim</p>
+                                <div class="space"></div>
+                                <div class="space"></div>
+                                <div class="space"></div>
+                                <span>
+		                            <input type="radio" name="Radiogroup3" value="radio5" id="radio5" />
+		                            <label class="medium" for="radio5">in progress</label>
+                                </span>
+                                <div class="space"></div>
+		                        <span>
+                                    <input type="radio" name="Radiogroup3" value="radio6" id="radio6" class="done" />
+		                            <label class="medium" for="radio6">done</label>
+                                </span>
+                            </div>
+                            <div class="subgroup1">
+                                <div class="space"></div>
+                                <img src="./images/Stift.png" alt="bearbeiten" class="pen">
+                                <div class="space"></div>
+                                <img src="./images/u8.svg" alt="trash" class="trash">
+                            </div>
+                        </div>
+                    </div> --> 
+                <!-- </fieldset>  -->
+        </div>
+    </main>
+
+</body>
+</html>
+
+
+  
