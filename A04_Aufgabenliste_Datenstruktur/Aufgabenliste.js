@@ -5,7 +5,7 @@ var L04_Aufgabenliste_Datenstruktur;
         Aufgabe: 04_Aufgabenliste
         Name: Theresa Hauser
         Matrikel: 272983
-        Datum: 07.04.23
+        Datum: 15.04.23
         Zusammenarbeit mit Pia Schwer, Marie Eckl
         Quellen: Stack Overflow, Developer Mozilla, Inverted Classroom Jirka, Tasks aus EIA1
         */
