@@ -19,6 +19,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .dates {
+    margin: 2px;
     width: 90px;
     height: 15px;
     font-size: small;
