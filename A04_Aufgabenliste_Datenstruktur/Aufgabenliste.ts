@@ -1,4 +1,4 @@
-namespace L04_Aufgabenliste_Datenstruktur{
+namespace L04_Aufgabenliste_Datenstruktur {
     /*
         Aufgabe: 04_Aufgabenliste
         Name: Theresa Hauser
@@ -8,58 +8,35 @@ namespace L04_Aufgabenliste_Datenstruktur{
         Quellen: Stack Overflow, Developer Mozilla, Inverted Classroom Jirka, Tasks aus EIA1
         */
 
-window.addEventListener("load", handleLoad);
+    window.addEventListener("load", handleLoad);
 
-let Title: HTMLInputElement = <HTMLInputElement> document.querySelector("#inputText");
-let Comment: HTMLInputElement = <HTMLInputElement> document.querySelector("#comment");
-let Name: HTMLInputElement = <HTMLInputElement> document.querySelector("#AddName");
-let Date:HTMLInputElement = <HTMLInputElement> document.querySelector("#date");
-let Time: HTMLInputElement = <HTMLInputElement> document.querySelector("#time");
-// let DateTime : HTMLDivElement = <HTMLDivElement> document.getElementById(_data.Input[x].name + "Done");   
+    function handleLoad(): void {
+        generateContent(data);
 
-function handleLoad ():void {
-    generateContent(data);
-    let button : HTMLButtonElement = <HTMLButtonElement> document.getElementById("btn");
-    // let done: HTMLLabelElement = <HTMLLabelElement> document.createElement("Done");
-    // let inProgress: HTMLLabelElement = <HTMLLabelElement> document.createElement("Progress");
+        let button: HTMLButtonElement = <HTMLButtonElement>document.getElementById("btn");
+        button.addEventListener("click", newTask);
+    }
 
-    button.addEventListener("click", newTask);
-    // done.addEventListener("click", TaskDone);
-    // done.addEventListener("click", TaskDone);     
+    function newTask(_event: MouseEvent): void {
+        let Title: HTMLInputElement = <HTMLInputElement>document.querySelector("#inputText");
+        let Comment: HTMLInputElement = <HTMLInputElement>document.querySelector("#comment");
+        let Name: HTMLInputElement = <HTMLInputElement>document.querySelector("#AddName");
+        let Date: HTMLInputElement = <HTMLInputElement>document.querySelector("#date");
+        let Time: HTMLInputElement = <HTMLInputElement>document.querySelector("#time");
         
-    
-    // inProgress.addEventListener("click", TaskinProgress);
-}    
+        let newTaskInput: toDoList = {
+            Input: [
+                { title: Title.value, comment: Comment.value, name: Name.value, date: Date.value, time: Time.value, done: false },
+                ]
+            }
 
-// function TaskDone (){
-//     console.log("Done");
-// }
- 
-// function TaskinProgress(){
-//     console.log("Progress");
-// }
+        generateContent(newTaskInput);
 
-function newTask (_event:MouseEvent): void {
-    let newTaskInput: toDoList = {
-        Input: [
-            { title: Title.value, comment: Comment.value, name: Name.value, date: Date.value, time: Time.value, done: false},
-        ]}
-    
-    generateContent(newTaskInput);
-    
-    Title.value = "";    
-    Comment.value = "";
-    Name.value = "Lisa";
-    Date.value = "2023-04-15";
-    Time.value = "10:00";
-}
-
-
-
-
-
-
-
-
+        Title.value = "";
+        Comment.value = "";
+        Name.value = "Lisa";
+        Date.value = "2023-04-15";
+        Time.value = "10:00";
+    }
 
 }

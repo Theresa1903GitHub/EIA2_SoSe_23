@@ -12,7 +12,6 @@ var L04_Aufgabenliste_Datenstruktur;
             newTaskDiv.appendChild(Subgroup);
             let Title = document.createElement("input");
             Title.type = "text";
-            Title.setAttribute("required", "required");
             Title.value = _data.Input[x].title;
             Title.classList.add("taskText");
             Subgroup.appendChild(Title);
@@ -52,9 +51,6 @@ var L04_Aufgabenliste_Datenstruktur;
             inProgress.type = "radio";
             inProgress.id = _data.Input[x].title + "Progress";
             inProgress.value = _data.Input[x].name;
-            // inProgress.addEventListener("click", function TaskinProgress(){
-            //     DateTime.classList.add("dateUndone");
-            // });
             inProgress.name = "radio" + x;
             let LabelProgress = document.createElement("label");
             LabelProgress.textContent = "in progress";

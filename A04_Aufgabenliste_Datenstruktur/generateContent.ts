@@ -11,29 +11,28 @@ export function generateContent(_data: toDoList): void {
         Subgroup.classList.add("subgroup");
         newTaskDiv.appendChild(Subgroup);
 
-        let Title = document.createElement("input");
+        let Title : HTMLInputElement = document.createElement("input");
         Title.type = "text";
-        Title.setAttribute("required", "required");
         Title.value = _data.Input[x].title;
         Title.classList.add("taskText");
         Subgroup.appendChild(Title);  
 
-        let Space: HTMLDivElement= document.createElement("div");
+        let Space: HTMLDivElement = document.createElement("div");
         Space.classList.add("space");
         Subgroup.appendChild(Space);
 
-        let DateTime = document.createElement("div");
+        let DateTime: HTMLDivElement  = document.createElement("div");
         DateTime.classList.add("dateUndone");
         DateTime.id = "DateTime";
         Subgroup.appendChild(DateTime);
 
-        let Date = document.createElement("input");
+        let Date: HTMLInputElement = document.createElement("input");
         Date.type = "date";
         Date.classList.add("dates");
         Date.value = _data.Input[x].date;
         DateTime.appendChild(Date);
 
-        let Time = document.createElement("input"); 
+        let Time: HTMLInputElement = document.createElement("input"); 
         Time.type = "time";
         Time.classList.add("dates");
         Time.value = _data.Input[x].time;
@@ -48,7 +47,7 @@ export function generateContent(_data: toDoList): void {
         Comment.value = _data.Input[x].comment;
         newTaskDiv.appendChild(Comment);
 
-        let Name = document.createElement("input");
+        let Name: HTMLInputElement = document.createElement("input");
         Name.type = "text";
         Name.classList.add("mediumbold", "name")
         Name.value = "@" + _data.Input[x].name;
@@ -62,9 +61,6 @@ export function generateContent(_data: toDoList): void {
         inProgress.type = "radio";
         inProgress.id = _data.Input[x].title  + "Progress";
         inProgress.value = _data.Input[x].name;
-        // inProgress.addEventListener("click", function TaskinProgress(){
-        //     DateTime.classList.add("dateUndone");
-        // });
         inProgress.name = "radio" + x;
         
         let LabelProgress : HTMLLabelElement = document.createElement("label");
@@ -91,7 +87,7 @@ export function generateContent(_data: toDoList): void {
         Subgroup1.appendChild(done);
         Subgroup1.appendChild(LabelDone);
 
-        let Trash = document.createElement("img");
+        let Trash : HTMLImageElement = document.createElement("img");
         Trash.setAttribute("src", "./images/u8.svg");
         Trash.classList.add("trash");
 
