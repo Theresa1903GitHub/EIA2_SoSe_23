@@ -5,7 +5,7 @@ var L05_Aufgabenliste_Client;
         Aufgabe: 05_Aufgabenliste_Client
         Name: Theresa Hauser
         Matrikel: 272983
-        Datum: 15.04.23
+        Datum: 22.04.23
         Zusammenarbeit mit Pia Schwer, Marie Eckl
         Quellen: Stack Overflow, Developer Mozilla, Inverted Classroom Jirka, Tasks aus EIA1
         */

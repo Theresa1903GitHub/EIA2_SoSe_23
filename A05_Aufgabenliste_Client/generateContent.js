@@ -99,19 +99,19 @@ var L05_Aufgabenliste_Client;
             Trash.setAttribute("src", "./images/u8.svg");
             Trash.classList.add("trash");
             Trash.addEventListener("click", function deleteTask() {
-                alert("This task will be removed...");
+                alert("Data of this task will be removed...");
                 Tasklist.removeChild(newTaskDiv);
                 Tasklist.removeChild(Space);
             });
             newTaskDiv.addEventListener("change", function editTask() {
                 console.log("edit");
-                alert("changed data will be sent!");
                 let changedTitle = Title.value;
                 let changedComment = Comment.value;
                 let changedName = Name.value;
                 let changedDate = Date.value;
                 let changedTime = Time.value;
                 console.log("{ " + "title: " + changedTitle + ", comment: " + changedComment + ", name: " + changedName + ", date: " + changedDate + ", time: " + changedTime + ", done: " + false + " }");
+                alert("changed data will be sent!");
             });
             Subgroup1.appendChild(Trash);
             Tasklist.appendChild(Space);
