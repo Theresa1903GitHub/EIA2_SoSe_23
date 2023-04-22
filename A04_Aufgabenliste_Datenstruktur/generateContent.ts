@@ -83,6 +83,12 @@ export function generateContent(_data: toDoList): void {
         LabelDone.classList.add("medium");
         LabelDone.classList.add("label");
         LabelDone.htmlFor = _data.Input[x].title + "Done";
+        
+        // let LabelDone : HTMLLabelElement = document.createElement("label");
+        // LabelDone.textContent = "done";
+        // LabelDone.classList.add("medium");
+        // LabelDone.classList.add("label");
+        // LabelDone.htmlFor = _data.title + "Done";
 
         Subgroup1.appendChild(done);
         Subgroup1.appendChild(LabelDone);
@@ -99,10 +105,30 @@ export function generateContent(_data: toDoList): void {
         Subgroup1.appendChild(Trash);
         
         Tasklist.appendChild(Space);
+
+        // let dropdown = document.createElement('select');
+        // dropdown.id = 'progress';
+        // newTaskDiv.appendChild(dropdown);
+        
+        // let undone : HTMLOptionElement = document.createElement('option');
+        // undone.textContent = 'undone';
+        // undone.value = 'undone';
+        // dropdown.appendChild(undone);
+        
+        // let InProgress : HTMLOptionElement = document.createElement('option');
+        // InProgress.textContent = 'in progress';
+        // InProgress.value = 'inprogress';
+        // dropdown.appendChild(InProgress);
+        
+        // let Done: HTMLOptionElement = document.createElement('option');
+        // Done.textContent = 'done';
+        // Done.value = 'done';
+        // dropdown.appendChild(Done);
+        
+          };
 }
 }
 
-}
 
 
 

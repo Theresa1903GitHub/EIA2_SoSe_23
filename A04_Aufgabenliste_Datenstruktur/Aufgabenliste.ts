@@ -15,6 +15,26 @@ namespace L04_Aufgabenliste_Datenstruktur {
 
         let button: HTMLButtonElement = <HTMLButtonElement>document.getElementById("btn");
         button.addEventListener("click", newTask);
+
+    //     let dropdown : HTMLSelectElement = <HTMLSelectElement> document.getElementById("progress");
+    // let DateTime : HTMLDivElement = <HTMLDivElement> document.getElementById("DateTime");
+    // dropdown.addEventListener('change', function colorChange () {  
+    //     if (dropdown.value == 'undone'){
+    //         console.log("undone");
+    //         console.log(dropdown.value);
+            
+    //         DateTime.classList.add("dateOver");
+    //     }      
+    //     else if (dropdown.value == 'inprogress'){
+    //         console.log("inProgress");
+    //         DateTime.classList.add("date");
+    //     }
+    //     else {
+    //         console.log("done");
+    //         DateTime.classList.add("dateDone");
+    //     };
+    //     return
+    //     });
     }
 
     function newTask(_event: MouseEvent): void {
@@ -24,13 +44,15 @@ namespace L04_Aufgabenliste_Datenstruktur {
         let Date: HTMLInputElement = <HTMLInputElement>document.querySelector("#date");
         let Time: HTMLInputElement = <HTMLInputElement>document.querySelector("#time");
         
-        let newTaskInput: toDoList = {
-            Input: [
-                { title: Title.value, comment: Comment.value, name: Name.value, date: Date.value, time: Time.value, done: false },
-                ]
-            }
+        let newTaskInput: Task = {title: Title.value, comment: Comment.value, name: Name.value, date: Date.value, time: Time.value, done: false }
+        
+        data.Input.unshift(newTaskInput);
 
-        generateContent(newTaskInput);
+
+
+        console.log(data);
+        
+        generateContent(data);
 
         Title.value = "";
         Comment.value = "";
@@ -38,5 +60,23 @@ namespace L04_Aufgabenliste_Datenstruktur {
         Date.value = "2023-04-15";
         Time.value = "10:00";
     }
+
+// let dropdown : HTMLSelectElement = <HTMLSelectElement> document.getElementById("progress");
+//     let DateTime : HTMLDivElement = <HTMLDivElement> document.getElementById("DateTime");
+//     dropdown.addEventListener('change', function colorChange () {  
+//         if (dropdown.value == 'undone'){
+//             console.log("undone");
+//             DateTime.classList.add("dateOver");
+//         }      
+//         else if (dropdown.value == 'inprogress'){
+//             console.log("inProgress");
+//             DateTime.classList.add("date");
+//         }
+//         else {
+//             console.log("done");
+//             DateTime.classList.add("dateDone");
+//         };
+//         return
+//         });
 
 }
