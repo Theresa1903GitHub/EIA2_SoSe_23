@@ -1,6 +1,6 @@
 "use strict";
-var L06_Aufgabenliste_Dataserver;
-(function (L06_Aufgabenliste_Dataserver) {
+var L05_Aufgabenliste_Client;
+(function (L05_Aufgabenliste_Client) {
     async function generateContent(_data) {
         let Tasklist = document.getElementById("toDoList");
         for (let x = 0; x < _data.Input.length; x++) {
@@ -133,6 +133,6 @@ var L06_Aufgabenliste_Dataserver;
         }
         ;
     }
-    L06_Aufgabenliste_Dataserver.generateContent = generateContent;
-})(L06_Aufgabenliste_Dataserver || (L06_Aufgabenliste_Dataserver = {}));
+    L05_Aufgabenliste_Client.generateContent = generateContent;
+})(L05_Aufgabenliste_Client || (L05_Aufgabenliste_Client = {}));
 //# sourceMappingURL=generateContent.js.map

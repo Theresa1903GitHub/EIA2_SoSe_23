@@ -23,11 +23,6 @@ namespace L06_Aufgabenliste_Dataserver {
         [name: string]: Task[];
     }
 
-    export interface FormDataJSON {
-        [key: string]: FormDataEntryValue | FormDataEntryValue[];
-      }
-
-
     async function handleLoad(): Promise<void> {
         let button: HTMLButtonElement = <HTMLButtonElement>document.getElementById("btn");
         button.addEventListener("click", newTask);
@@ -35,10 +30,6 @@ namespace L06_Aufgabenliste_Dataserver {
         let response: Response = await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?command=find&collection=Tasks");
         let task: string = await response.text();
         let data: toDoList = JSON.parse(task);
-
-        // for (let task in data){
-        //    export let id = data[task]
-        // }
         
         generateContent(data);
     }
@@ -53,22 +44,14 @@ namespace L06_Aufgabenliste_Dataserver {
         let newTaskInput: Task = {title: Title.value, comment: Comment.value, name: Name.value, date: Date.value, time: Time.value, done: false }
         console.log(newTaskInput);
 
-        // let query: URLSearchParams = new URLSearchParams(<any>formData);
         let query = JSON.stringify(newTaskInput); 
         
-        let something = await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?command=insert&collection=Tasks&data=" + query);
-        let task: string = await something.text();
-
-        console.log(query);
-        console.log(something);
-        console.log(task);
+        await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?command=insert&collection=Tasks&data=" + query);
 
         Title.value = "";
         Comment.value = "";
         Name.value = "Lisa";
-        Date.value = "2023-04-15";
+        Date.value = "2023-04-30";
         Time.value = "10:00";
     };
-
-    
 }

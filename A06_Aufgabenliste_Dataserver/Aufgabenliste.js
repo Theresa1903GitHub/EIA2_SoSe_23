@@ -1,6 +1,6 @@
 "use strict";
-var L05_Aufgabenliste_Client;
-(function (L05_Aufgabenliste_Client) {
+var L06_Aufgabenliste_Dataserver;
+(function (L06_Aufgabenliste_Dataserver) {
     /*
         Aufgabe: 05_Aufgabenliste_Client
         Name: Theresa Hauser
@@ -16,10 +16,7 @@ var L05_Aufgabenliste_Client;
         let response = await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?command=find&collection=Tasks");
         let task = await response.text();
         let data = JSON.parse(task);
-        // for (let task in data){
-        //    export let id = data[task]
-        // }
-        L05_Aufgabenliste_Client.generateContent(data);
+        L06_Aufgabenliste_Dataserver.generateContent(data);
     }
     async function newTask() {
         let Title = document.querySelector("#inputText");
@@ -29,34 +26,14 @@ var L05_Aufgabenliste_Client;
         let Time = document.querySelector("#time");
         let newTaskInput = { title: Title.value, comment: Comment.value, name: Name.value, date: Date.value, time: Time.value, done: false };
         console.log(newTaskInput);
-        // let query: URLSearchParams = new URLSearchParams(<any>formData);
         let query = JSON.stringify(newTaskInput);
-        let something = await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?command=insert&collection=Tasks&data=" + query);
-        let task = await something.text();
-        console.log(query);
-        console.log(something);
-        console.log(task);
+        await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?command=insert&collection=Tasks&data=" + query);
         Title.value = "";
         Comment.value = "";
         Name.value = "Lisa";
-        Date.value = "2023-04-15";
+        Date.value = "2023-04-30";
         Time.value = "10:00";
     }
     ;
-    // async function loadItem(): Promise<void> {
-    //     let formData: FormData = new FormData(document.forms[0]);
-    //     let json: FormDataJSON = {};
-    //     for (let k of formData.keys())
-    //             if (!json[k]) {
-    //          let values: FormDataEntryValue[] = formData.getAll(k);
-    //          json[k] = values.length > 1 ? values : values[0];
-    //      }
-    //     let query: URLSearchParams = new URLSearchParams();
-    //     query.set("command", "insert");
-    //     query.set("collection", "Tasks");
-    //     query.set("data", JSON.stringify(json));
-    //     let response: Response = await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?" + query.toString());
-    //    console.log(response);
-    //  }
-})(L05_Aufgabenliste_Client || (L05_Aufgabenliste_Client = {}));
+})(L06_Aufgabenliste_Dataserver || (L06_Aufgabenliste_Dataserver = {}));
 //# sourceMappingURL=Aufgabenliste.js.map

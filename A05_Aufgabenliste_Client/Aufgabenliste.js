@@ -1,6 +1,6 @@
 "use strict";
-var L06_Aufgabenliste_Dataserver;
-(function (L06_Aufgabenliste_Dataserver) {
+var L05_Aufgabenliste_Client;
+(function (L05_Aufgabenliste_Client) {
     /*
         Aufgabe: 05_Aufgabenliste_Client
         Name: Theresa Hauser
@@ -15,7 +15,7 @@ var L06_Aufgabenliste_Dataserver;
         let response = await fetch("data.json");
         let task = await response.text();
         let data = JSON.parse(task);
-        L06_Aufgabenliste_Dataserver.generateContent(data);
+        L05_Aufgabenliste_Client.generateContent(data);
         let button = document.getElementById("btn");
         button.addEventListener("click", newTask);
     }
@@ -39,5 +39,5 @@ var L06_Aufgabenliste_Dataserver;
         // location.reload();
     }
     ;
-})(L06_Aufgabenliste_Dataserver || (L06_Aufgabenliste_Dataserver = {}));
+})(L05_Aufgabenliste_Client || (L05_Aufgabenliste_Client = {}));
 //# sourceMappingURL=Aufgabenliste.js.map

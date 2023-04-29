@@ -1,14 +1,12 @@
 "use strict";
-var L05_Aufgabenliste_Client;
-(function (L05_Aufgabenliste_Client) {
+var L06_Aufgabenliste_Dataserver;
+(function (L06_Aufgabenliste_Dataserver) {
     async function generateContent(_data) {
         let Tasklist = [];
         for (let x in _data.data) {
             Tasklist.push(x);
         }
         for (let i of Tasklist) {
-            // for (let TaskId in _data) {
-            //     let item = _data[TaskId];
             let newTaskDiv = document.createElement("form");
             newTaskDiv.classList.add("newTask");
             let toDoList = document.getElementById("toDoList");
@@ -81,8 +79,6 @@ var L05_Aufgabenliste_Client;
             Trash.setAttribute("src", "./images/u8.svg");
             Trash.classList.add("trash");
             Trash.addEventListener("click", function () {
-                let id = _data;
-                console.log(id);
                 deleteTask(newTaskDiv, Space);
             });
             newTaskDiv.addEventListener("change", function () {
@@ -95,13 +91,19 @@ var L05_Aufgabenliste_Client;
                 let changedDate = Date.value;
                 let changedTime = Time.value;
                 let changedDone = done.checked;
-                let changedTaskInput = { title: changedTitle, comment: changedComment, name: changedName, date: changedDate, time: changedTime, done: changedDone };
+                let changedTaskInput = {
+                    title: changedTitle,
+                    comment: changedComment,
+                    name: changedName,
+                    date: changedDate,
+                    time: changedTime,
+                    done: changedDone
+                };
                 console.log(changedTaskInput);
                 let query = JSON.stringify(changedTaskInput);
-                let id = JSON.stringify(_data.data);
-                let something = await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?command=update&collection=Tasks&id=" + id + "data=" + query);
+                let id = JSON.stringify(_data.key); //hier müsste auf die entsprechende Id zugegriffen werden
+                await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?command=update&collection=Tasks&id=" + id + "data=" + query);
                 console.log(query);
-                console.log(something);
             }
             ;
             Subgroup1.appendChild(Trash);
@@ -109,20 +111,19 @@ var L05_Aufgabenliste_Client;
         }
         ;
     }
-    L05_Aufgabenliste_Client.generateContent = generateContent;
+    L06_Aufgabenliste_Dataserver.generateContent = generateContent;
     ;
     async function deleteTask(_data, _data2) {
-        // let id = _data[x];
-        // console.log(id);
         let toDoList = document.getElementById("toDoList");
         toDoList.removeChild(_data);
         toDoList.removeChild(_data2);
         let query = new URLSearchParams();
         query.set("command", "delete");
         query.set("collection", "Tasks");
-        query.set("id", "");
+        query.set("id", _data.key); //hier müsste auf die entsprechende Id zugegriffen werden
         let response = await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?" + query.toString());
         console.log(response);
     }
-})(L05_Aufgabenliste_Client || (L05_Aufgabenliste_Client = {}));
+    ;
+})(L06_Aufgabenliste_Dataserver || (L06_Aufgabenliste_Dataserver = {}));
 //# sourceMappingURL=generateContent.js.map

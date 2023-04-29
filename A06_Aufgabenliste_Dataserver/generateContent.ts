@@ -8,8 +8,6 @@ namespace L06_Aufgabenliste_Dataserver {
         }
 
         for (let i of Tasklist) {
-            // for (let TaskId in _data) {
-            //     let item = _data[TaskId];
             let newTaskDiv: HTMLFormElement = document.createElement("form");   
             newTaskDiv.classList.add("newTask");
             let toDoList: HTMLElement = <HTMLElement> document.getElementById("toDoList");
@@ -100,15 +98,13 @@ namespace L06_Aufgabenliste_Dataserver {
             Trash.classList.add("trash");
             
             Trash.addEventListener("click", function (): void {
-                let id = _data.task;
-                console.log(id);
                 deleteTask(newTaskDiv, Space);                
             });
 
             newTaskDiv.addEventListener("change", function (): void{
                 editTask ();
                 
-            });          
+            });        
             
     async function editTask(){
         let changedTitle = Title.value;
@@ -118,25 +114,29 @@ namespace L06_Aufgabenliste_Dataserver {
         let changedTime = Time.value;
         let changedDone = done.checked;
 
-        let changedTaskInput: Task = {title: changedTitle, comment: changedComment, name: changedName, date: changedDate, time: changedTime, done: changedDone}
+        let changedTaskInput: Task = {
+            title: changedTitle, 
+            comment: changedComment, 
+            name: changedName, 
+            date: changedDate, 
+            time: changedTime, 
+            done: changedDone
+            }
         console.log(changedTaskInput);
         let query = JSON.stringify(changedTaskInput); 
-        let id = JSON.stringify(_data.data);
+        let id = JSON.stringify(_data.key);  //hier müsste auf die entsprechende Id zugegriffen werden
         
-        let something = await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?command=update&collection=Tasks&id=" + id + "data=" + query);
+        await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?command=update&collection=Tasks&id=" + id + "data=" + query);
 
         console.log(query);
-        console.log(something);
+        
     };
-            
             Subgroup1.appendChild(Trash);
             toDoList.appendChild(Space);
               };
             };
 
     async function deleteTask(_data: HTMLFormElement, _data2: HTMLDivElement){
-        let id = _data.id;
-        console.log(id);
         let toDoList: HTMLElement = <HTMLElement> document.getElementById("toDoList");
         toDoList.removeChild(_data);
         toDoList.removeChild(_data2);
@@ -144,11 +144,9 @@ namespace L06_Aufgabenliste_Dataserver {
         let query: URLSearchParams = new URLSearchParams();
         query.set("command", "delete");
         query.set("collection", "Tasks");
-             
-        query.set("id", "");
+        query.set("id", _data.key); //hier müsste auf die entsprechende Id zugegriffen werden
            
         let response: Response = await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?" + query.toString());
         console.log(response);
-    }
-    
-    }
+    };
+}
