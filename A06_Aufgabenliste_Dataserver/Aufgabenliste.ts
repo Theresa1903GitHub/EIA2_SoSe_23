@@ -70,27 +70,5 @@ namespace L06_Aufgabenliste_Dataserver {
         Time.value = "10:00";
     };
 
-    // async function loadItem(): Promise<void> {
     
-    //     let formData: FormData = new FormData(document.forms[0]);
-    //     let json: FormDataJSON = {};
-
-    //     for (let k of formData.keys())
-    //             if (!json[k]) {
-    //          let values: FormDataEntryValue[] = formData.getAll(k);
-    //          json[k] = values.length > 1 ? values : values[0];
-    //      }
-
-    //     let query: URLSearchParams = new URLSearchParams();
-    //     query.set("command", "insert");
-    //     query.set("collection", "Tasks");
-    //     query.set("data", JSON.stringify(json));
-       
-
-    //     let response: Response = await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?" + query.toString());
-    //    console.log(response);
-       
-
-    //  }
-
 }

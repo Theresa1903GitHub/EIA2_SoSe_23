@@ -100,7 +100,7 @@ namespace L06_Aufgabenliste_Dataserver {
             Trash.classList.add("trash");
             
             Trash.addEventListener("click", function (): void {
-                let id = _data;
+                let id = _data.task;
                 console.log(id);
                 deleteTask(newTaskDiv, Space);                
             });
@@ -145,9 +145,6 @@ namespace L06_Aufgabenliste_Dataserver {
         query.set("command", "delete");
         query.set("collection", "Tasks");
              
-        
-
-        
         query.set("id", "");
            
         let response: Response = await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?" + query.toString());
