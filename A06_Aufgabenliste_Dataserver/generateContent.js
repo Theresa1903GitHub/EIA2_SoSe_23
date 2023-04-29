@@ -46,7 +46,7 @@ var L06_Aufgabenliste_Dataserver;
             let Name = document.createElement("input");
             Name.type = "text";
             Name.classList.add("mediumbold", "name");
-            Name.value = "@" + _data.data[i].name;
+            Name.value = _data.data[i].name;
             newTaskDiv.appendChild(Name);
             let Subgroup1 = document.createElement("div");
             Subgroup1.classList.add("subgroup1");
@@ -78,7 +78,8 @@ var L06_Aufgabenliste_Dataserver;
             let Trash = document.createElement("img");
             Trash.setAttribute("src", "./images/u8.svg");
             Trash.classList.add("trash");
-            Trash.addEventListener("click", function () {
+            Trash.addEventListener("click", async function () {
+                await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?command=delete&collection=Tasks&id=" + i);
                 deleteTask(newTaskDiv, Space);
             });
             newTaskDiv.addEventListener("change", function () {
@@ -99,31 +100,22 @@ var L06_Aufgabenliste_Dataserver;
                     time: changedTime,
                     done: changedDone
                 };
-                console.log(changedTaskInput);
                 let query = JSON.stringify(changedTaskInput);
-                let id = JSON.stringify(_data.key); //hier müsste auf die entsprechende Id zugegriffen werden
-                await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?command=update&collection=Tasks&id=" + id + "data=" + query);
-                console.log(query);
+                await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?command=update&collection=Tasks&id=" + i + "&data=" + query);
             }
             ;
             Subgroup1.appendChild(Trash);
             toDoList.appendChild(Space);
         }
         ;
+        async function deleteTask(_data, _data2) {
+            let toDoList = document.getElementById("toDoList");
+            toDoList.removeChild(_data);
+            toDoList.removeChild(_data2);
+        }
+        ;
     }
     L06_Aufgabenliste_Dataserver.generateContent = generateContent;
-    ;
-    async function deleteTask(_data, _data2) {
-        let toDoList = document.getElementById("toDoList");
-        toDoList.removeChild(_data);
-        toDoList.removeChild(_data2);
-        let query = new URLSearchParams();
-        query.set("command", "delete");
-        query.set("collection", "Tasks");
-        query.set("id", _data.key); //hier müsste auf die entsprechende Id zugegriffen werden
-        let response = await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?" + query.toString());
-        console.log(response);
-    }
     ;
 })(L06_Aufgabenliste_Dataserver || (L06_Aufgabenliste_Dataserver = {}));
 //# sourceMappingURL=generateContent.js.map

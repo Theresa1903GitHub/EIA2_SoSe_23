@@ -56,7 +56,7 @@ namespace L06_Aufgabenliste_Dataserver {
             let Name: HTMLInputElement = document.createElement("input");
             Name.type = "text";
             Name.classList.add("mediumbold", "name")
-            Name.value = "@" + _data.data[i].name;
+            Name.value = _data.data[i].name;
             newTaskDiv.appendChild(Name);
            
             let Subgroup1 : HTMLDivElement = document.createElement("div");
@@ -97,7 +97,8 @@ namespace L06_Aufgabenliste_Dataserver {
             Trash.setAttribute("src", "./images/u8.svg");
             Trash.classList.add("trash");
             
-            Trash.addEventListener("click", function (): void {
+            Trash.addEventListener("click", async function (){
+                await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?command=delete&collection=Tasks&id=" + i);
                 deleteTask(newTaskDiv, Space);                
             });
 
@@ -122,31 +123,20 @@ namespace L06_Aufgabenliste_Dataserver {
             time: changedTime, 
             done: changedDone
             }
-        console.log(changedTaskInput);
+        
         let query = JSON.stringify(changedTaskInput); 
-        let id = JSON.stringify(_data.key);  //hier müsste auf die entsprechende Id zugegriffen werden
         
-        await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?command=update&collection=Tasks&id=" + id + "data=" + query);
-
-        console.log(query);
+        await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?command=update&collection=Tasks&id=" + i + "&data=" + query);        
+        };
         
-    };
-            Subgroup1.appendChild(Trash);
-            toDoList.appendChild(Space);
-              };
-            };
+        Subgroup1.appendChild(Trash);
+        toDoList.appendChild(Space);
+        };
 
-    async function deleteTask(_data: HTMLFormElement, _data2: HTMLDivElement){
+    async function deleteTask(_data: HTMLFormElement, _data2: HTMLDivElement){        
         let toDoList: HTMLElement = <HTMLElement> document.getElementById("toDoList");
         toDoList.removeChild(_data);
         toDoList.removeChild(_data2);
-
-        let query: URLSearchParams = new URLSearchParams();
-        query.set("command", "delete");
-        query.set("collection", "Tasks");
-        query.set("id", _data.key); //hier müsste auf die entsprechende Id zugegriffen werden
-           
-        let response: Response = await fetch("https://webuser.hs-furtwangen.de/~hauserth/Database/?" + query.toString());
-        console.log(response);
+        };
     };
 }
