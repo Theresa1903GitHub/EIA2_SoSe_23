@@ -1,5 +1,14 @@
 namespace Canvas_GenerativeArt {
 
+    /*
+        Aufgabe: 08.1_GenerrativeArt_Canvas
+        Name: Theresa Hauser
+        Matrikel: 272983
+        Datum: 06.05.23
+        Zusammenarbeit: -
+        Quellen: Inverted Classroom Jirka
+        */
+
 window.addEventListener("load", handleLoad);
 let crc2: CanvasRenderingContext2D;
 let PositionX: number;
