@@ -23,7 +23,7 @@ function handleLoad (){
     Background();
     let objectNumber = Math.floor(Math.random()*25);
     for (let x: number = 0; x <= objectNumber; x++){
-        let geometry: number = Math.floor(Math.random()*4);
+        let geometry: number = Math.floor(Math.random()*3);
         if (geometry === 0){
             circle();
             console.log("circle");  

@@ -23,7 +23,7 @@ var Canvas_GenerativeArt;
         Background();
         let objectNumber = Math.floor(Math.random() * 25);
         for (let x = 0; x <= objectNumber; x++) {
-            let geometry = Math.floor(Math.random() * 4);
+            let geometry = Math.floor(Math.random() * 3);
             if (geometry === 0) {
                 circle();
                 console.log("circle");
