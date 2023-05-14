@@ -1,6 +1,14 @@
 "use strict";
 var L08_Luftfahrt_Canvas;
 (function (L08_Luftfahrt_Canvas) {
+    /*
+    Aufgabe: 08_2_Luftfahrt
+    Name: Theresa Hauser
+    Matrikel: 272983
+    Datum: 13.05.23
+    Zusammenarbeit mit Pia Schwer, Marie Eckl
+    Quellen: Inverted Classroom Jirka
+    */
     let h;
     let s;
     let l;

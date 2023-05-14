@@ -1,4 +1,13 @@
 namespace L08_Luftfahrt_Canvas {
+
+        /*
+        Aufgabe: 08_2_Luftfahrt
+        Name: Theresa Hauser
+        Matrikel: 272983
+        Datum: 13.05.23
+        Zusammenarbeit mit Pia Schwer, Marie Eckl
+        Quellen: Inverted Classroom Jirka
+        */
     
     interface Vector {
         x: number;
