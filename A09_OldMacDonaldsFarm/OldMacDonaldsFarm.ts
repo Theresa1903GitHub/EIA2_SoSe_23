@@ -11,11 +11,11 @@ namespace L09_OldMacDonaldsFarm {
 
     window.addEventListener("load", handleLoad);
 
-    let dog: Animal = new Animal("Bruno", "dog", "woof", "meat", 20);
-    let cat: Animal = new Animal("Angora", "cat", "miow", "fish", 4);
-    let pig: Animal = new Animal("Trudi", "pig", "oink", "oats", 1);
-    let chicken: Animal = new Animal("Hannelore", "chicken", "gack", "wheat", 2);
-    let cow: Animal = new Animal("Klaus", "cow", "muh", "gras", 3);
+    let dog: Animal = new Animal("Bruno", "dog", "woof", "meat", 0.5);
+    let cat: Animal = new Animal("Angora", "cat", "miow", "fish", 0.2);
+    let pig: Animal = new Animal("Trudi", "pig", "oink", "oats", 2.5);
+    let chicken: Animal = new Animal("Hannelore", "chicken", "gack", "wheat", 0.1);
+    let cow: Animal = new Animal("Klaus", "cow", "muh", "gras", 50);
     let farmanimals: Animal[] = [dog, cat, pig, chicken, cow];
 
     interface Food {
@@ -24,11 +24,11 @@ namespace L09_OldMacDonaldsFarm {
     }
 
     let FoodStorage : Food[] = [
-            {type: "meat", storageAmount: 120},
-            {type: "fish", storageAmount: 30},
+            {type: "meat", storageAmount: 10},
+            {type: "fish", storageAmount: 8},
             {type: "oats", storageAmount: 30},
-            {type: "wheat", storageAmount: 45},
-            {type: "gras", storageAmount: 50}] 
+            {type: "wheat", storageAmount: 2},
+            {type: "gras", storageAmount: 300}] 
 
     let button: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#nextDay");
     let x: number = 0;
@@ -37,7 +37,7 @@ namespace L09_OldMacDonaldsFarm {
         button.addEventListener("click", singAndEat);
 
         let storageDiv: HTMLElement = <HTMLElement> document.getElementById("food");
-        storageDiv.innerHTML = "<br><h2>food storage</h2>"  + 
+        storageDiv.innerHTML = "<br><h2>Feed storage</h2>"  + 
         FoodStorage[0].storageAmount + " kg " + farmanimals[0].food  + "<br>" + 
         FoodStorage[1].storageAmount + " kg " + farmanimals[1].food  + "<br>" +
         FoodStorage[2].storageAmount + " kg " + farmanimals[2].food  + "<br>" +
@@ -46,7 +46,7 @@ namespace L09_OldMacDonaldsFarm {
     };
 
     function singAndEat(): void {
-        let textArea: HTMLElement = <HTMLDivElement>document.getElementById("textarea");
+        let textArea: HTMLElement = <HTMLDivElement>document.getElementById("song");
         let paragraph: HTMLParagraphElement;
         
        
@@ -71,7 +71,7 @@ namespace L09_OldMacDonaldsFarm {
         };
 
         let storageDiv: HTMLElement = <HTMLElement> document.getElementById("food");
-        storageDiv.innerHTML = "<h2>food storage</h2>"  + 
+        storageDiv.innerHTML = "<br><h2>Feed storage</h2>"  + 
         FoodStorage[0].storageAmount + " kg " + farmanimals[0].food  + "<br>" + 
         FoodStorage[1].storageAmount + " kg " + farmanimals[1].food  + "<br>" +
         FoodStorage[2].storageAmount + " kg " + farmanimals[2].food  + "<br>" +

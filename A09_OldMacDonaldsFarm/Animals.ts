@@ -21,7 +21,7 @@ namespace L09_OldMacDonaldsFarm {
         And on that farm he had a ${this.type}, E-I-E-I-O! <br>
         With a ${this.sound}-${this.sound} here, and a ${this.sound}-${this.sound} there, <br>
         here a ${this.sound}, there a ${this.sound}, everywhere a ${this.sound}-${this.sound}. <br>
-        Old MacDonald had a farm E-I-E-I-O! <br>`;
+        Old MacDonald had a farm, E-I-E-I-O! <br>`;
         }
     
     eat(): string {
