@@ -23,6 +23,12 @@ namespace L09_OldMacDonaldsFarm {
         storageAmount: number;
     }
 
+    let FeedStorage : Food[] = [
+            {type: "meat", storageAmount: 10},
+            {type: "fish", storageAmount: 8},
+            {type: "oats", storageAmount: 30},
+            {type: "wheat", storageAmount: 2},
+            {type: "gras", storageAmount: 300}] 
 
     let button: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#nextDay");
     let x: number = 0;
@@ -30,58 +36,50 @@ namespace L09_OldMacDonaldsFarm {
     function handleLoad(_event: Event): void {
         button.addEventListener("click", newDay);
 
-
-        let FoodStorage : Food[] = [
-            {type: "meat", storageAmount: 10},
-            {type: "fish", storageAmount: 8},
-            {type: "oats", storageAmount: 30},
-            {type: "wheat", storageAmount: 2},
-            {type: "gras", storageAmount: 300}] 
-
         let storageDiv: HTMLElement = <HTMLElement> document.getElementById("food");
         storageDiv.innerHTML = "<br><h2>Feed storage</h2>"  + 
-        FoodStorage[0].storageAmount + " kg " + farmanimals[0].food  + "<br>" + 
-        FoodStorage[1].storageAmount + " kg " + farmanimals[1].food  + "<br>" +
-        FoodStorage[2].storageAmount + " kg " + farmanimals[2].food  + "<br>" +
-        FoodStorage[3].storageAmount + " kg " + farmanimals[3].food  + "<br>" +
-        FoodStorage[4].storageAmount + " kg " + farmanimals[4].food  + "<br>" ;
+        FeedStorage[0].storageAmount + " kg " + farmanimals[0].food  + "<br>" + 
+        FeedStorage[1].storageAmount + " kg " + farmanimals[1].food  + "<br>" +
+        FeedStorage[2].storageAmount + " kg " + farmanimals[2].food  + "<br>" +
+        FeedStorage[3].storageAmount + " kg " + farmanimals[3].food  + "<br>" +
+        FeedStorage[4].storageAmount + " kg " + farmanimals[4].food  + "<br>" ;
     };
 
     function newDay(): void {
-        let textArea: HTMLElement = <HTMLDivElement>document.getElementById("song");
+        let singingArea: HTMLDivElement = <HTMLDivElement>document.getElementById("song");
         let paragraph: HTMLParagraphElement;
         
        
         for (let i: number = 0; i < farmanimals.length; i++) {
             paragraph = document.createElement("p");
             paragraph.innerHTML = farmanimals[i].sing() + farmanimals[i].eat();
-            textArea.insertBefore(paragraph, textArea.firstChild);    
+            singingArea.insertBefore(paragraph, singingArea.firstChild);    
         }
 
         let nextDay : HTMLHeadingElement = document.createElement("h2");
         x++;
         nextDay.innerHTML = "Day " + x;
-        textArea.insertBefore(nextDay, textArea.firstChild);
+        singingArea.insertBefore(nextDay, singingArea.firstChild);
 
         dailyFeeding();
     }
 
     function dailyFeeding(): void { 
 
-        for (let index: number = 0; index < farmanimals.length; index++) {
-          FoodStorage[index].storageAmount -= farmanimals[index].portion;
+        for (let n: number = 0; n < farmanimals.length; n++) {
+          FeedStorage[n].storageAmount -= farmanimals[n].portion;
         };
 
-        let storageDiv: HTMLElement = <HTMLElement> document.getElementById("food");
-        storageDiv.innerHTML = "<br><h2>Feed storage</h2>"  + 
-        FoodStorage[0].storageAmount + " kg " + farmanimals[0].food  + "<br>" + 
-        FoodStorage[1].storageAmount + " kg " + farmanimals[1].food  + "<br>" +
-        FoodStorage[2].storageAmount + " kg " + farmanimals[2].food  + "<br>" +
-        FoodStorage[3].storageAmount + " kg " + farmanimals[3].food  + "<br>" +
-        FoodStorage[4].storageAmount + " kg " + farmanimals[4].food  + "<br>" ;
+        let storageArea: HTMLElement = <HTMLElement> document.getElementById("food");
+        storageArea.innerHTML = "<br><h2>Feed storage</h2>"  + 
+        FeedStorage[0].storageAmount + " kg " + farmanimals[0].food  + "<br>" + 
+        FeedStorage[1].storageAmount + " kg " + farmanimals[1].food  + "<br>" +
+        FeedStorage[2].storageAmount + " kg " + farmanimals[2].food  + "<br>" +
+        FeedStorage[3].storageAmount + " kg " + farmanimals[3].food  + "<br>" +
+        FeedStorage[4].storageAmount + " kg " + farmanimals[4].food  + "<br>" ;
 
-        for (let index: number = 0; index < farmanimals.length; index++) {
-            if (FoodStorage[index].storageAmount <= 0) {
+        for (let m: number = 0; m < farmanimals.length; m++) {
+            if (FeedStorage[m].storageAmount <= 0) {
                 alert("Old MacDonald is running out of food!");
             }
         };
