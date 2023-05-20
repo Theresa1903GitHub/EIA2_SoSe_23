@@ -23,18 +23,20 @@ namespace L09_OldMacDonaldsFarm {
         storageAmount: number;
     }
 
-    let FoodStorage : Food[] = [
-            {type: "meat", storageAmount: 10},
-            {type: "fish", storageAmount: 8},
-            {type: "oats", storageAmount: 30},
-            {type: "wheat", storageAmount: 2},
-            {type: "gras", storageAmount: 300}] 
 
     let button: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#nextDay");
     let x: number = 0;
 
     function handleLoad(_event: Event): void {
-        button.addEventListener("click", singAndEat);
+        button.addEventListener("click", newDay);
+
+
+        let FoodStorage : Food[] = [
+            {type: "meat", storageAmount: 10},
+            {type: "fish", storageAmount: 8},
+            {type: "oats", storageAmount: 30},
+            {type: "wheat", storageAmount: 2},
+            {type: "gras", storageAmount: 300}] 
 
         let storageDiv: HTMLElement = <HTMLElement> document.getElementById("food");
         storageDiv.innerHTML = "<br><h2>Feed storage</h2>"  + 
@@ -45,7 +47,7 @@ namespace L09_OldMacDonaldsFarm {
         FoodStorage[4].storageAmount + " kg " + farmanimals[4].food  + "<br>" ;
     };
 
-    function singAndEat(): void {
+    function newDay(): void {
         let textArea: HTMLElement = <HTMLDivElement>document.getElementById("song");
         let paragraph: HTMLParagraphElement;
         
@@ -61,10 +63,10 @@ namespace L09_OldMacDonaldsFarm {
         nextDay.innerHTML = "Day " + x;
         textArea.insertBefore(nextDay, textArea.firstChild);
 
-        newDay();
+        dailyFeeding();
     }
 
-    function newDay(): void { 
+    function dailyFeeding(): void { 
 
         for (let index: number = 0; index < farmanimals.length; index++) {
           FoodStorage[index].storageAmount -= farmanimals[index].portion;

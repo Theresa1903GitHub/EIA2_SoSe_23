@@ -16,17 +16,17 @@ var L09_OldMacDonaldsFarm;
     let chicken = new L09_OldMacDonaldsFarm.Animal("Hannelore", "chicken", "gack", "wheat", 0.1);
     let cow = new L09_OldMacDonaldsFarm.Animal("Klaus", "cow", "muh", "gras", 50);
     let farmanimals = [dog, cat, pig, chicken, cow];
-    let FoodStorage = [
-        { type: "meat", storageAmount: 10 },
-        { type: "fish", storageAmount: 8 },
-        { type: "oats", storageAmount: 30 },
-        { type: "wheat", storageAmount: 2 },
-        { type: "gras", storageAmount: 300 }
-    ];
     let button = document.querySelector("#nextDay");
     let x = 0;
     function handleLoad(_event) {
-        button.addEventListener("click", singAndEat);
+        button.addEventListener("click", newDay);
+        let FoodStorage = [
+            { type: "meat", storageAmount: 10 },
+            { type: "fish", storageAmount: 8 },
+            { type: "oats", storageAmount: 30 },
+            { type: "wheat", storageAmount: 2 },
+            { type: "gras", storageAmount: 300 }
+        ];
         let storageDiv = document.getElementById("food");
         storageDiv.innerHTML = "<br><h2>Feed storage</h2>" +
             FoodStorage[0].storageAmount + " kg " + farmanimals[0].food + "<br>" +
@@ -36,7 +36,7 @@ var L09_OldMacDonaldsFarm;
             FoodStorage[4].storageAmount + " kg " + farmanimals[4].food + "<br>";
     }
     ;
-    function singAndEat() {
+    function newDay() {
         let textArea = document.getElementById("song");
         let paragraph;
         for (let i = 0; i < farmanimals.length; i++) {
@@ -48,9 +48,9 @@ var L09_OldMacDonaldsFarm;
         x++;
         nextDay.innerHTML = "Day " + x;
         textArea.insertBefore(nextDay, textArea.firstChild);
-        newDay();
+        dailyFeeding();
     }
-    function newDay() {
+    function dailyFeeding() {
         for (let index = 0; index < farmanimals.length; index++) {
             FoodStorage[index].storageAmount -= farmanimals[index].portion;
         }
