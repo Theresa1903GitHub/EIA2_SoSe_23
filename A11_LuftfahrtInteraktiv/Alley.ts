@@ -61,22 +61,22 @@ namespace L11_LuftfahrtInteraktiv {
         }
     };
     
-    function handleKeyevent(e: { keyCode: number; }) {
+    function handleKeyevent(_event: { keyCode: number; }) {
         // up keyCode == 38
-        if (e.keyCode == 38) {
+        if (_event.keyCode == 38) {
             strength += 1;
             // for (let moveable of moveables) {
             // moveable.velocity.scaleX(2)}
         }
         // down keyCode == 40
-        if (e.keyCode == 40) {
+        if (_event.keyCode == 40) {
             // for (let moveable of moveables) {
             // moveable.velocity.scaleX(1/2)}
             if (strength >= 0)
             strength -= 1;
         }
         // left keyCode == 37
-        if (e.keyCode == 37) {
+        if (_event.keyCode == 37) {
             for (let moveable of moveables) {
                 if (moveable.velocity.x >= 0)
                     moveable.velocity.mirror()
@@ -84,7 +84,7 @@ namespace L11_LuftfahrtInteraktiv {
             direction = false;
         }
         // right keyCode == 39
-        if (e.keyCode == 39) {
+        if (_event.keyCode == 39) {
             for (let moveable of moveables) {
                 if (moveable.velocity.x <= 0)
                     moveable.velocity.mirror()
