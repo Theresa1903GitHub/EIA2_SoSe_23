@@ -81,7 +81,7 @@ var L11_LuftfahrtInteraktiv;
                 this.position.add(offset);
                 if (this.position.y > 270) {
                     this.activity = "walk";
-                    if (L11_LuftfahrtInteraktiv.direction == true) {
+                    if (this.position.x >= 100) {
                         this.velocity.set(-50, 0);
                     }
                     else {
@@ -90,7 +90,7 @@ var L11_LuftfahrtInteraktiv;
                 }
             }
             if (this.activity == "walk") {
-                let offset = new L11_LuftfahrtInteraktiv.Vector(this.velocity.x * L11_LuftfahrtInteraktiv.strength, this.velocity.y);
+                let offset = new L11_LuftfahrtInteraktiv.Vector(this.velocity.x, this.velocity.y);
                 offset.scale(_timeslice);
                 this.position.add(offset);
                 if (this.position.x <= 100) {

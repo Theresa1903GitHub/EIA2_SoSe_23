@@ -9,7 +9,7 @@ var L11_LuftfahrtInteraktiv;
             this.velocity = _velocity;
         }
         move(_timeslice, _strength) {
-            let offset = new L11_LuftfahrtInteraktiv.Vector(this.velocity.x + L11_LuftfahrtInteraktiv.strength, this.velocity.y);
+            let offset = new L11_LuftfahrtInteraktiv.Vector(this.velocity.x * L11_LuftfahrtInteraktiv.strength, this.velocity.y);
             offset.scale(_timeslice);
             this.position.add(offset);
             if (this.position.x < 0)

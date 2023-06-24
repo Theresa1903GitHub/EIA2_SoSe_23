@@ -9,7 +9,7 @@ namespace L11_LuftfahrtInteraktiv {
             this.velocity = _velocity;
         }
         public move(_timeslice: number, _strength?: number):void{    
-            let offset: Vector = new Vector(this.velocity.x + strength, this.velocity.y);
+            let offset: Vector = new Vector(this.velocity.x * strength, this.velocity.y);
             offset.scale(_timeslice);
             this.position.add(offset);
     

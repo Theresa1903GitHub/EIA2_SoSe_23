@@ -91,16 +91,16 @@ namespace L11_LuftfahrtInteraktiv {
             this.position.add(offset);
                 if (this.position.y > 270){
                 this.activity = "walk"; 
-                if (direction == true){               
+                if (this.position.x >=100){               
                     this.velocity.set (-50, 0);
-                    }
+                }
                 else {
                     this.velocity.set (50,0);
                     }
                 } 
             }
             if(this.activity == "walk"){
-            let offset: Vector = new Vector (this.velocity.x*strength, this.velocity.y);
+            let offset: Vector = new Vector (this.velocity.x, this.velocity.y);
             offset.scale(_timeslice);
             this.position.add(offset);
                 if (this.position.x <= 100){
