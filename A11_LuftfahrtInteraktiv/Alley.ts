@@ -4,7 +4,7 @@ namespace L11_LuftfahrtInteraktiv {
         Aufgabe: 11_LuftfahrtInteraktiv
         Name: Theresa Hauser
         Matrikel: 272983
-        Datum: 22.06.23
+        Datum: 24.06.23
         Zusammenarbeit mit Pia Schwer, Marie Eckl
         Quellen: Inverted Classroom Jirka, Aufgaben aus EIA1
         */
@@ -21,7 +21,7 @@ namespace L11_LuftfahrtInteraktiv {
     let background: ImageData;
     let moveables: Moveable[] = [];
     export let direction: boolean = true;
-    export let strength: number = 0;
+    export let strength: number = 1;
 
     export let crc2: CanvasRenderingContext2D;
     export let golden: number = 0.62;
@@ -61,22 +61,22 @@ namespace L11_LuftfahrtInteraktiv {
         }
     };
     
-    function handleKeyevent(e: { keyCode: number; }) {
+    function handleKeyevent(_event: { keyCode: number; }): void {
         // up keyCode == 38
-        if (e.keyCode == 38) {
-            strength += 50;
+        if (_event.keyCode == 38) {
+            strength += 1;
             // for (let moveable of moveables) {
             // moveable.velocity.scaleX(2)}
         }
         // down keyCode == 40
-        if (e.keyCode == 40) {
+        if (_event.keyCode == 40) {
             // for (let moveable of moveables) {
             // moveable.velocity.scaleX(1/2)}
-            if (strength >= 0)
-            strength -= 50;
+            if (strength > 0)
+            strength -= 1;
         }
         // left keyCode == 37
-        if (e.keyCode == 37) {
+        if (_event.keyCode == 37) {
             for (let moveable of moveables) {
                 if (moveable.velocity.x >= 0)
                     moveable.velocity.mirror()
@@ -84,7 +84,7 @@ namespace L11_LuftfahrtInteraktiv {
             direction = false;
         }
         // right keyCode == 39
-        if (e.keyCode == 39) {
+        if (_event.keyCode == 39) {
             for (let moveable of moveables) {
                 if (moveable.velocity.x <= 0)
                     moveable.velocity.mirror()

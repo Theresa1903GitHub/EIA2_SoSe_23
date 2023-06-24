@@ -5,7 +5,7 @@ var L11_LuftfahrtInteraktiv;
     Aufgabe: 11_LuftfahrtInteraktiv
     Name: Theresa Hauser
     Matrikel: 272983
-    Datum: 22.06.23
+    Datum: 24.06.23
     Zusammenarbeit mit Pia Schwer, Marie Eckl
     Quellen: Inverted Classroom Jirka, Aufgaben aus EIA1
     */
@@ -15,7 +15,7 @@ var L11_LuftfahrtInteraktiv;
     let background;
     let moveables = [];
     L11_LuftfahrtInteraktiv.direction = true;
-    L11_LuftfahrtInteraktiv.strength = 0;
+    L11_LuftfahrtInteraktiv.strength = 1;
     L11_LuftfahrtInteraktiv.golden = 0.62;
     function handleLoad(_event) {
         let canvas = document.querySelector("canvas");
@@ -53,22 +53,22 @@ var L11_LuftfahrtInteraktiv;
         }
     }
     ;
-    function handleKeyevent(e) {
+    function handleKeyevent(_event) {
         // up keyCode == 38
-        if (e.keyCode == 38) {
-            L11_LuftfahrtInteraktiv.strength += 50;
+        if (_event.keyCode == 38) {
+            L11_LuftfahrtInteraktiv.strength += 1;
             // for (let moveable of moveables) {
             // moveable.velocity.scaleX(2)}
         }
         // down keyCode == 40
-        if (e.keyCode == 40) {
+        if (_event.keyCode == 40) {
             // for (let moveable of moveables) {
             // moveable.velocity.scaleX(1/2)}
-            if (L11_LuftfahrtInteraktiv.strength >= 0)
-                L11_LuftfahrtInteraktiv.strength -= 50;
+            if (L11_LuftfahrtInteraktiv.strength > 0)
+                L11_LuftfahrtInteraktiv.strength -= 1;
         }
         // left keyCode == 37
-        if (e.keyCode == 37) {
+        if (_event.keyCode == 37) {
             for (let moveable of moveables) {
                 if (moveable.velocity.x >= 0)
                     moveable.velocity.mirror();
@@ -76,7 +76,7 @@ var L11_LuftfahrtInteraktiv;
             L11_LuftfahrtInteraktiv.direction = false;
         }
         // right keyCode == 39
-        if (e.keyCode == 39) {
+        if (_event.keyCode == 39) {
             for (let moveable of moveables) {
                 if (moveable.velocity.x <= 0)
                     moveable.velocity.mirror();

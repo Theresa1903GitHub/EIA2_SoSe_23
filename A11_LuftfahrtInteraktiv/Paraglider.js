@@ -76,16 +76,21 @@ var L11_LuftfahrtInteraktiv;
         move(_timeslice) {
             // fly
             if (this.activity == "fly") {
-                let offset = new L11_LuftfahrtInteraktiv.Vector(this.velocity.x + (L11_LuftfahrtInteraktiv.strength * 0.5), this.velocity.y);
+                let offset = new L11_LuftfahrtInteraktiv.Vector(this.velocity.x * L11_LuftfahrtInteraktiv.strength, this.velocity.y);
                 offset.scale(_timeslice);
                 this.position.add(offset);
                 if (this.position.y > 270) {
                     this.activity = "walk";
-                    this.velocity.set(-50, 0);
+                    if (L11_LuftfahrtInteraktiv.direction == true) {
+                        this.velocity.set(-50, 0);
+                    }
+                    else {
+                        this.velocity.set(50, 0);
+                    }
                 }
             }
             if (this.activity == "walk") {
-                let offset = new L11_LuftfahrtInteraktiv.Vector(this.velocity.x - (L11_LuftfahrtInteraktiv.strength * 0.5), this.velocity.y);
+                let offset = new L11_LuftfahrtInteraktiv.Vector(this.velocity.x * L11_LuftfahrtInteraktiv.strength, this.velocity.y);
                 offset.scale(_timeslice);
                 this.position.add(offset);
                 if (this.position.x <= 100) {
@@ -99,7 +104,12 @@ var L11_LuftfahrtInteraktiv;
                 this.position.add(offset);
                 if (this.position.y <= 122) {
                     this.activity = "fly";
-                    this.velocity.set(100, 40);
+                    if (L11_LuftfahrtInteraktiv.direction == true) {
+                        this.velocity.set(100, 40);
+                    }
+                    else {
+                        this.velocity.set(-100, 40);
+                    }
                 }
             }
         }

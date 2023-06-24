@@ -86,16 +86,21 @@ namespace L11_LuftfahrtInteraktiv {
         public move(_timeslice: number): void{
             // fly
             if(this.activity == "fly"){
-            let offset: Vector = new Vector (this.velocity.x+(strength*0.5), this.velocity.y);
+            let offset: Vector = new Vector (this.velocity.x*strength, this.velocity.y);
             offset.scale(_timeslice);
             this.position.add(offset);
                 if (this.position.y > 270){
-                this.activity = "walk";                
-                this.velocity.set (-50, 0);
+                this.activity = "walk"; 
+                if (direction == true){               
+                    this.velocity.set (-50, 0);
+                    }
+                else {
+                    this.velocity.set (50,0);
+                    }
                 } 
             }
             if(this.activity == "walk"){
-            let offset: Vector = new Vector (this.velocity.x-(strength*0.5), this.velocity.y);
+            let offset: Vector = new Vector (this.velocity.x*strength, this.velocity.y);
             offset.scale(_timeslice);
             this.position.add(offset);
                 if (this.position.x <= 100){
@@ -109,8 +114,12 @@ namespace L11_LuftfahrtInteraktiv {
             this.position.add(offset);
             if (this.position.y<=122){
                 this.activity = "fly";
-                this.velocity.set (100, 40);
+                if (direction == true){ 
+                    this.velocity.set (100, 40);
                 }
+                else {
+                    this.velocity.set(-100,40);
+                }}
             }
         }
 
