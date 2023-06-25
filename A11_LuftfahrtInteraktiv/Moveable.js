@@ -21,8 +21,6 @@ var L11_LuftfahrtInteraktiv;
             if (this.position.y > L11_LuftfahrtInteraktiv.crc2.canvas.height)
                 this.position.y -= L11_LuftfahrtInteraktiv.crc2.canvas.height;
         }
-        draw(_x, _y) {
-        }
     }
     L11_LuftfahrtInteraktiv.Moveable = Moveable;
 })(L11_LuftfahrtInteraktiv || (L11_LuftfahrtInteraktiv = {}));

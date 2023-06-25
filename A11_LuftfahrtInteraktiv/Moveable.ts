@@ -1,6 +1,6 @@
 namespace L11_LuftfahrtInteraktiv {
 
-    export class Moveable {
+    export abstract class Moveable {
         public position: Vector;
         public velocity: Vector;
     
@@ -22,8 +22,6 @@ namespace L11_LuftfahrtInteraktiv {
             if (this.position.y > crc2.canvas.height)
                 this.position.y -= crc2.canvas.height;
         }
-        public draw(_x?: number, _y?: number): void{
-
-        }
+        public abstract draw(_x?: number, _y?: number): void
     }
 }
